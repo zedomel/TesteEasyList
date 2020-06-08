@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cadastro</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br>
+  <div><img style="width: 110px;height: 110px;" src="https://dentalspeed.com/imgs/topo/icones/user.svg"></div>
+  <form action="" class="container">
+    <label for="lblNome">Nome:</label><br><br>
+    <input type="text" id="username" name="txtNome" [(ngModel)]="userRegister.nome" placeholder="Digite seu Nome"
+      required><br><br>
+
+    <label for="lblNUSP">Número USP:</label><br><br>
+    <input type="number" id="userNUSP" name="txtNUSP" [(ngModel)]="userRegister.nUSP"
+      placeholder="Digite seu Numero USP" required><br><br>
+
+    <label for="lblEmail">Email:</label><br><br>
+    <input type="email" id="useremail" name="txtEmail" [(ngModel)]="userRegister.email" placeholder="Digite seu Email"
+      required><br><br>
+
+    <label for="lblSenha">Senha:</label><br><br>
+    <input type="password" id="usersenha" name="txtSenha" [(ngModel)]="userRegister.senha"
+      placeholder="Digite sua Senha" required><br><br>
+    <input class="btn" type="submit" value="Cadastrar">
+
+  </form>
+</ion-content>

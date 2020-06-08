@@ -1,0 +1,54 @@
+input[type=text], input[type=password], input[type=email], input[type=number] {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 15px;
+    border: none;
+    background: #f1f1f1;
+  }
+  .btn {
+    background-color: #1E90FF;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    opacity: 0.9;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  #container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  a{
+    text-align: center;
+    text-decoration: none;
+    //margin-left: 30%;
+    //margin-right: 30%;
+  }
+  label{
+    margin-left: 10%;
+  }
+
+  div{
+    text-align: center;
+    width: 100%;
+  }
+  ion-item,ion-input{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 15px;
+    border: none;
+    background: #f1f1f1;
+  }
