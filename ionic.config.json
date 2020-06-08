@@ -1,0 +1,7 @@
+{
+  "name": "TesteEasyList",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
