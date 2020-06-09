@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/interfaces/user';
+import { User } from '../../interfaces/user';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { AuthService} from 'src/app/services/auth.service';
+import { AuthService} from '../../services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,24 +14,26 @@ export class LoginPage implements OnInit {
   public userRegister: User = {};
   private loading: any;
   constructor(
-    //private authService: AuthService,
+    private authService: AuthService,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
   ) { }
 
   ngOnInit() {
-  }
-  /*
+  }  
   async login() {
     await this.presentLoading();
 
-    try {
-      await this.authService.login(this.userLogin);
-    } catch (error) {
-      this.presentToast(error.message);
-    } finally {
-      this.loading.dismiss();
-    }
+    this.authService.login(this.userLogin)
+      .then(res => {
+        console.log('User logged in' + this.authService.userDetails());
+        console.log(res);
+        this.loading.dismiss();        
+      }, err => {
+        console.log('Error!');
+        console.log(err);
+        this.loading.dismiss();
+      });   
   }
 
   async register() {
@@ -44,7 +47,7 @@ export class LoginPage implements OnInit {
       this.loading.dismiss();
     }
   }
-  */
+
   async presentLoading() {
     this.loading = await this.loadingCtrl.create({ message: 'Aguarde...' });
     return this.loading.present();

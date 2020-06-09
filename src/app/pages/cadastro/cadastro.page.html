@@ -11,7 +11,7 @@
   </ion-header>
   <br>
   <div><img style="width: 110px;height: 110px;" src="https://dentalspeed.com/imgs/topo/icones/user.svg"></div>
-  <form action="" class="container">
+  <form action="" class="container" (ngSubmit)="register()">
     <label for="lblNome">Nome:</label><br><br>
     <input type="text" id="username" name="txtNome" [(ngModel)]="userRegister.nome" placeholder="Digite seu Nome"
       required><br><br>
@@ -27,7 +27,7 @@
     <label for="lblSenha">Senha:</label><br><br>
     <input type="password" id="usersenha" name="txtSenha" [(ngModel)]="userRegister.senha"
       placeholder="Digite sua Senha" required><br><br>
-    <input class="btn" type="submit" value="Cadastrar">
+    <ion-button class="btn" type="submit">Cadastrar</ion-button>
 
   </form>
 </ion-content>

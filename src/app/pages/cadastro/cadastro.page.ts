@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "src/app/interfaces/user";
+import { User } from "../../interfaces/user";
 import { LoadingController, ToastController } from '@ionic/angular';
+import { AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,7 +16,7 @@ export class CadastroPage implements OnInit {
   constructor(
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
-    private authService
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -23,18 +24,23 @@ export class CadastroPage implements OnInit {
   login() {
   }
   async register() {
-    await this.presentLoading();
-    try {
-      await this.authService.register(this.userRegister);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      this.loading.dismiss;
-    }
-    this.loading.dismiss;
+    await this.presentLoading();    
+      this.authService.register(this.userRegister)
+      .then(res => {
+        console.log(res);
+        this.loading.dismiss();
+        this.toastCtrl.create({
+          message: "Logged in:" + this.authService.userDetails
+        });
+
+      }, err => {
+        console.log('Error!');
+        console.log(err);
+        this.loading.dismiss();
+      })              
   }
   async presentLoading() {
-    const loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde...', });
-    return loading.present();
+    this.loading = await this.loadingCtrl.create({ message: 'Por favor, aguarde...', });    
+    return this.loading.present();
   }
 }
